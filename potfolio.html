@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chethan Kumar | Senior Automation Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+	.profile {
+    display: flex;           /* Align items side by side */
+    align-items: center;     /* Vertically center */
+    gap: 20px;               /* Space between image and header */
+  }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: rgba(31, 41, 55, 0.95);
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+    header p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: #111827cc;
+      padding: 0.8rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      backdrop-filter: saturate(180%) blur(10px);
+      border-bottom: 1px solid #fff2;
+    }
+    nav a {
+      color: #d1d5db;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: #60a5fa;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #60a5fa;
+      transition: width 0.3s ease, left 0.3s ease;
+      border-radius: 2px;
+    }
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+      left: 0;
+    }
+    section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1.5rem 2rem;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      margin-bottom: 1rem;
+      color: #1f2937;
+      border-left: 5px solid #3b82f6;
+      padding-left: 0.5rem;
+      font-weight: 600;
+      font-size: 1.8rem;
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+    }
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+    ul li {
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #444;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+    ul li::before {
+      content: '•';
+      color: #3b82f6;
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.3rem;
+      line-height: 1;
+      font-weight: bold;
+    }
+    .skills span {
+      display: inline-block;
+      background: #e5e7eb;
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+      cursor: default;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .skills span:hover,
+    .skills span:focus {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(59, 130, 246, 0.6);
+      outline: none;
+    }
+    .project, .job {
+      margin-bottom: 1.8rem;
+      color: #1e293b;
+      transition: background-color 0.3s ease;
+      padding: 1rem;
+      border-radius: 12px;
+    }
+    .project:hover,
+    .job:hover {
+      background-color: #f3f4f6;
+      box-shadow: 0 8px 16px rgba(59, 130, 246, 0.15);
+    }
+    .project h3, .job h3 {
+      color: #2563eb;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      cursor: default;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #1f2937;
+      color: #fff;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    footer a {
+      color: #60a5fa;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+    footer a:hover,
+    footer a:focus {
+      text-decoration: underline;
+    }
+    /* Smooth fade-in on scroll */
+    @media (prefers-reduced-motion: no-preference) {
+      section {
+        will-change: opacity, transform;
+      }
+    }
+    /* Responsive improvements */
+    @media (max-width: 600px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      section {
+        margin: 1rem 1rem 2rem;
+        padding: 1rem 1.2rem;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      nav a {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+ <div class="profile">
+  <img src="https://thumbs.dreamstime.com/b/initial-letter-ck-logotype-company-name-colored-blue-grey-swoosh-design-vector-logo-business-identity-207597712.jpg"  style="height:200px;margin-right:200px; border-radius: 100px;" alt="Profile Image">
+  
+  <header>
+    <h1>Chethan Kumar S D</h1>
+    <p>Senior Automation Engineer</p>
+    <p>📞 +91 9071864676 | ✉️ chethankumar.senioranalyst@gmail.com</p>
+  </header>
+</div>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#education">Education</a>
+    <a href="#volunteer">Volunteer Contribution</a>
+    <a href="#social">Social Links</a>
+  </nav>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>ISTQB and Oracle Certified professional with strong expertise in Manual Testing, Web Automation, and API Automation. Experienced with Java Selenium, C# Playwright, Postman, Rest-Assured, and BDD frameworks. Skilled in Agile/Scrum methodologies, CI/CD pipelines, and delivering high-quality solutions in BFSI and SaaS domains.</p>
+  </section>
+  <section id="skills">
+    <h2>Skills & Tools</h2>
+    <div class="skills" aria-label="Skills and tools">
+      <span tabindex="0">Java - Selenium</span><span tabindex="0">C# - Playwright</span><span tabindex="0">Manual Testing</span>
+      <span tabindex="0">SQL</span><span tabindex="0">JIRA</span><span tabindex="0">Azure DevOps</span><span tabindex="0">Postman</span>
+      <span tabindex="0">Rest Assured</span><span tabindex="0">TestNG</span><span tabindex="0">NUnit</span><span tabindex="0">BDD Cucumber</span>
+      <span tabindex="0">Maven</span><span tabindex="0">GitHub</span><span tabindex="0">Agile</span><span tabindex="0">Jenkins</span>
+    </div>
+  </section>
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <div class="job">
+      <h3>Senior Test Analyst | Test Yantra Software Solutions (2024 - Present)</h3>
+      <p>Led UI test automation efforts with Selenium and Java, designed POM classes, automated API scripts using Rest Assured, created Regression/Smoke suites, and contributed to Agile ceremonies.</p>
+    </div>
+    <div class="job">
+      <h3>Senior Automation Engineer | Indium (2021 - 2024)</h3>
+      <p>Executed UI test automation using C# Playwright, developed regression suites with hybrid frameworks, collaborated in Scrum ceremonies, and ensured production validation with hotfix deployments.</p>
+    </div>
+    <div class="job">
+      <h3>Corporate Java Trainer | Freelance (2018 - 2021)</h3>
+      <p>Conducted Java and Selenium training for 10,000+ students and professionals. Created hands-on exercises and projects, provided code troubleshooting and mentoring.</p>
+    </div>
+    <div class="job">
+      <h3>Project Team Member | Toyota Kirloskar Motor Pvt Ltd (2010 - 2017)</h3>
+      <p>Managed floor processes, designed workflows, developed hardware processes, trained members, and ensured machine functionality (robots, manipulators). Eliminated risks using PDCA concept and actively participated in quality control initiatives.</p>
+    </div>
+  </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Millennial Specialty Insurance | BFSI</h3>
+      <p><strong>Project Description:</strong> MSI provides a range of insurance products with a tech-driven platform for U.S. and Canada policyholders.</p>
+      <p><strong>Roles & Responsibilities:</strong></p>
+      <ul>
+        <li>Performed manual testing of UI, workflows, and API integrations.</li>
+        <li>Developed automation with C# Playwright & NUnit for regression and smoke tests.</li>
+        <li>Integrated test cases with Azure DevOps pipelines for continuous execution.</li>
+        <li>Tracked and managed defects with Azure Boards.</li>
+      </ul>
+    </div>
+    <div class="project">
+      <h3>Western Union Bank | BFSI</h3>
+      <p><strong>Project Description:</strong> Digital banking platform for accounts, transfers, history, and KYC across geographies.</p>
+      <p><strong>Roles & Responsibilities:</strong></p>
+      <ul>
+        <li>Developed and maintained automation scripts with Selenium WebDriver (Java) using POM.</li>
+        <li>Built a data-driven framework using JSON for login, transfer, and profile validation.</li>
+        <li>Integrated regression suites with Jenkins for scheduled execution and reporting.</li>
+        <li>Collaborated with developers and analysts in Agile sprints for timely delivery.</li>
+      </ul>
+    </div>
+    <div class="project">
+      <h3>FireFlink — Scriptless Automation Tool | SAAS - Test Automation / DevOps Tools</h3>
+      <p><strong>Project Description:</strong> FireFlink is an AI-powered scriptless automation testing platform enabling rapid web, mobile, and API testing with minimal coding.</p>
+      <p><strong>Roles & Responsibilities:</strong></p>
+      <ul>
+        <li>Collaborated with developers and product owners to gather requirements.</li>
+        <li>Performed manual testing and tracked issues with JIRA.</li>
+        <li>Implemented automation using Selenium (Java), Cucumber BDD, and Rest Assured.</li>
+        <li>Integrated with Jenkins for CI/CD and GitHub for version control.</li>
+      </ul>
+    </div>
+  </section>
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul>
+      <li>Oracle Certified Professional – Java SE 8 Programmer</li>
+      <li>ISTQB Foundation Level</li>
+      <li>Certified Scrum Master – Scrum Alliance</li>
+    </ul>
+  </section>
+  <section id="education">
+    <h2>Education</h2>
+    <ul>
+      <li>Master of Computer Applications (Pursuing) – Jain University</li>
+      <li>Bachelor of Computer Applications – Annamalai University (64%)</li>
+      <li>Diploma – PES Polytechnic, Bangalore (89%)</li>
+    </ul>
+  </section>
+  <section id="volunteer">
+    <h2>Volunteer Contribution</h2>
+    <p>Trained and mentored more than <strong>10,000 graduate students and corporate employees</strong> on Java, Selenium, Manual Testing, and other technologies to enhance their skills and help them find suitable job opportunities.</p>
+  </section>
+  <section id="social">
+    <h2>Social Links</h2>
+    <p>🔗 <a href="https://www.linkedin.com/in/ck-ae" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+      <a href="https://github.com/ckjavahelpmate" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+  </section>
+  <footer>
+    <p>&copy; 2025 Chethan Kumar | Portfolio Website</p>
+  </footer>
+  <script>
+    // Intersection observer for fade-in sections
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("section");
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
+</body>
+</html>
